@@ -1,6 +1,6 @@
-reacNative/node_modules/**/*
-reacNative/.expo/*
-reacNative/npm-debug.*
+node_modules/**/*
+.expo/*
+npm-debug.*
 *.jks
 *.p8
 *.p12
