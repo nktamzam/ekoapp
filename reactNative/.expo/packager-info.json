@@ -1,9 +1,9 @@
 {
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 13676,
-  "expoServerNgrokUrl": "https://5h-kda.anonymous.ekoapp.exp.direct",
-  "packagerNgrokUrl": "https://packager.5h-kda.anonymous.ekoapp.exp.direct",
-  "ngrokPid": 12756,
+  "packagerPid": 12108,
+  "expoServerNgrokUrl": "https://5h-kda.anonymous.reactnative.exp.direct",
+  "packagerNgrokUrl": "https://packager.5h-kda.anonymous.reactnative.exp.direct",
+  "ngrokPid": 7096,
   "devToolsPort": 19002
 }
