@@ -4,7 +4,7 @@ export default class Nivel extends Component {
   render() {
     return (
       <View style={style.container}>
-        <Text>Nivel</Text>
+        <Text>Nivel: {this.props.dificultad}</Text>
       </View>
     );
   }
@@ -13,7 +13,8 @@ export default class Nivel extends Component {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#3f0b7c",
-    padding: 5
+    padding: 5,
+    margin: 10,
+    backgroundColor: "#ccc"
   }
 });

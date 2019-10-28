@@ -8,30 +8,31 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 
-import { listRepos } from "./src/redux/actions";
+import { listarAcciones } from "./src/redux/actions";
 
-class RepoList extends Component {
+class ListaAcciones extends Component {
   componentDidMount() {
-    this.props.listRepos("nktamzam");
+    this.props.listarAcciones();
   }
   renderItem = ({ item }) => (
     <TouchableHighlight
       onPress={() => {
-        this.props.navigation.navigate("Details", { name: item.name });
+        this.props.navigation.navigate("Acción", { id: item.id });
       }}
     >
       <View style={styles.item}>
-        <Text>{item.name}</Text>
+        <Text>{item.titulo}</Text>
+        <Text>{item.texto}</Text>
       </View>
     </TouchableHighlight>
   );
   render() {
-    const { repos } = this.props;
+    const { acciones } = this.props;
     return (
       <View>
         <FlatList
           styles={styles.container}
-          data={repos}
+          data={acciones}
           renderItem={this.renderItem}
         />
       </View>
@@ -51,18 +52,21 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  let storedRepositories = state.repos.map(repo => ({ key: repo.id, ...repo }));
+  let lista = state.acciones.map(accion => ({
+    key: accion.id,
+    ...accion
+  }));
 
   return {
-    repos: storedRepositories
+    acciones: lista
   };
 };
 
 const mapDispatchToProps = {
-  listRepos
+  listarAcciones
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RepoList);
+)(ListaAcciones);

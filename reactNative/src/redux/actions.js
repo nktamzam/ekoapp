@@ -1,22 +1,22 @@
-import { GET_REPOS, GET_REPO_INFO, GET_USER } from "./reducer";
+import { GET_acciones, GET_accion, GET_USER } from "./reducer";
 
-export function listRepos(user) {
+export function listarAcciones() {
   return {
-    type: GET_REPOS,
+    type: GET_acciones,
     payload: {
       request: {
-        url: `/users/${user}/repos`
+        url: `/product/read.php`
       }
     }
   };
 }
 
-export function getRepoDetail(user, repo) {
+export function getAccion(id) {
   return {
-    type: GET_REPO_INFO,
+    type: GET_accion,
     payload: {
       request: {
-        url: `/repos/${user}/${repo}`
+        url: `/product/read_one.php?id=${id}`
       }
     }
   };
@@ -27,7 +27,7 @@ export function getUser(user) {
     type: GET_USER,
     payload: {
       request: {
-        url: `/users/${user}`
+        url: `/product/create.php`
       }
     }
   };

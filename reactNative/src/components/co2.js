@@ -5,7 +5,7 @@ export default class Co2 extends Component {
   render() {
     return (
       <View style={style.container}>
-        <Text>CO2</Text>
+        <Text>Energia: {this.props.energia}</Text>
       </View>
     );
   }
@@ -14,7 +14,8 @@ export default class Co2 extends Component {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#Ff0b2c",
-    padding: 5
+    padding: 5,
+    margin: 10,
+    backgroundColor: "#ccc"
   }
 });

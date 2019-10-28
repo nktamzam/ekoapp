@@ -9,7 +9,7 @@ import AppContainer from "./src/navigation";
 import reducer from "./src/redux/reducer";
 
 const client = axios.create({
-  baseURL: "https://api.github.com",
+  baseURL: "http://ekoapp.online",
   responseType: "json"
 });
 

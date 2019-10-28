@@ -1,12 +1,12 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import RepoList from "../../RepoList";
-import RepoDetail from "../../RepoDetail";
+import Acciones from "../../Acciones";
+import Accion from "../../Accion";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: RepoList,
-    Details: RepoDetail
+    Home: Acciones,
+    Acción: Accion
   },
   {
     initialRouteName: "Home"

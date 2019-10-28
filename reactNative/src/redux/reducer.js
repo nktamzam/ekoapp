@@ -1,45 +1,34 @@
-export const GET_REPOS = "my-awesome-app/repos/LOAD";
-export const GET_REPOS_SUCCESS = "my-awesome-app/repos/LOAD_SUCCESS";
-export const GET_REPOS_FAIL = "my-awesome-app/repos/LOAD_FAIL";
+export const GET_acciones = "ekoapp/acciones/LOAD";
+export const GET_REPOS_SUCCESS = "ekoapp/acciones/LOAD_SUCCESS";
+export const GET_REPOS_FAIL = "ekoapp/acciones/LOAD_FAIL";
 
-export const GET_REPO_INFO = "my-awesome-app/repos/INFO";
-export const GET_REPO_INFO_SUCCESS = "my-awesome-app/repos/INFO_SUCCESS";
-export const GET_REPO_INFO_FAIL = "my-awesome-app/repos/INFO_FAIL";
+export const GET_accion = "ekoapp/accion/INFO";
+export const GET_REPO_INFO_SUCCESS = "ekoapp/accion/INFO_SUCCESS";
+export const GET_REPO_INFO_FAIL = "ekoapp/accion/INFO_FAIL";
 
-export const GET_USER = "my-awesome-app/repos/USER";
-export const GET_USER_SUCCESS = "my-awesome-app/repos/USER_SUCCESS";
-export const GET_USER_FAIL = "my-awesome-app/repos/USER_FAIL";
-
-const initialState = { repos: [], repoInfo: {}, user: {} };
+const initialState = { acciones: [], accion: {}, user: {} };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case GET_REPOS:
+    case GET_acciones:
       return { ...state, loading: true };
     case GET_REPOS_SUCCESS:
-      return { ...state, loading: false, repos: action.payload.data };
+      return { ...state, loading: false, acciones: action.payload.data };
     case GET_REPOS_FAIL:
-      return { ...state, loading: false, error: "Error getting repos info" };
-    case GET_REPO_INFO:
+      return {
+        ...state,
+        loading: false,
+        error: "No se puede mostrar la lista"
+      };
+    case GET_accion:
       return { ...state, loadingInfo: true };
     case GET_REPO_INFO_SUCCESS:
-      return { ...state, loadingInfo: false, repoInfo: action.payload.data };
+      return { ...state, loadingInfo: false, accion: action.payload.data };
     case GET_REPO_INFO_FAIL:
-      console.log(action.payload);
       return {
         ...state,
         loadingInfo: false,
-        errorInfo: "Error getting repo info"
-      };
-    case GET_USER:
-      return { ...state, loadingProfile: true };
-    case GET_USER_SUCCESS:
-      return { ...state, loadingProfile: false, user: action.payload.data };
-    case GET_USER_FAIL:
-      return {
-        ...state,
-        loadingProfile: false,
-        errorUser: "Error getting user info"
+        errorInfo: "Error al consultar la acción"
       };
     default:
       return state;

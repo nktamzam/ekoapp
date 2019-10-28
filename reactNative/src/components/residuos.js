@@ -5,7 +5,7 @@ export default class Residuos extends Component {
   render() {
     return (
       <View style={style.container}>
-        <Text>Residuos</Text>
+        <Text>Residuos: {this.props.residuos}</Text>
       </View>
     );
   }
@@ -14,7 +14,8 @@ export default class Residuos extends Component {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F2732c",
-    padding: 5
+    padding: 5,
+    margin: 10,
+    backgroundColor: "#ccc"
   }
 });
