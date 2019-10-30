@@ -51,14 +51,17 @@ export default connect(
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    backgroundColor: "#333"
   },
   titulo: {
     fontSize: 40,
-    padding: 5
+    padding: 5,
+    color: "white"
   },
   texto: {
     fontSize: 18,
-    padding: 5
+    padding: 5,
+    color: "white"
   }
 });

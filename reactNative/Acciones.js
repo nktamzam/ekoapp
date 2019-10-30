@@ -21,15 +21,15 @@ class ListaAcciones extends Component {
       }}
     >
       <View style={styles.item}>
-        <Text>{item.titulo}</Text>
-        <Text>{item.texto}</Text>
+        <Text style={{ color: "white" }}>{item.titulo}</Text>
+        <Text style={{ color: "white" }}>{item.texto}</Text>
       </View>
     </TouchableHighlight>
   );
   render() {
     const { acciones } = this.props;
     return (
-      <View>
+      <View style={styles.container}>
         <FlatList
           styles={styles.container}
           data={acciones}
@@ -42,7 +42,8 @@ class ListaAcciones extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#333"
   },
   item: {
     padding: 16,

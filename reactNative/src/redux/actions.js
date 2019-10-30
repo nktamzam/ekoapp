@@ -5,7 +5,7 @@ export function listarAcciones() {
     type: GET_acciones,
     payload: {
       request: {
-        url: `/product/read.php`
+        url: `/acciones/lista`
       }
     }
   };
@@ -16,7 +16,7 @@ export function getAccion(id) {
     type: GET_accion,
     payload: {
       request: {
-        url: `/product/read_one.php?id=${id}`
+        url: `/acciones/detalle?id=${id}`
       }
     }
   };
@@ -27,7 +27,7 @@ export function getUser(user) {
     type: GET_USER,
     payload: {
       request: {
-        url: `/product/create.php`
+        url: `/acciones/nueva`
       }
     }
   };
