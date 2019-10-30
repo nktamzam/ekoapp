@@ -6,9 +6,9 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
  
-// include database and object files
-include_once '../config/database.php';
-include_once '../objects/accion.php';
+// includes
+include_once '../config/db';
+include_once '../class/accion';
  
 // get database connection
 $database = new Database();

@@ -7,9 +7,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// include database and object files
-include_once '../config/database.php';
-include_once '../objects/accion.php';
+// includes
+include_once '../config/db';
+include_once '../class/accion';
  
 // instantiate database and accion object
 $database = new Database();
