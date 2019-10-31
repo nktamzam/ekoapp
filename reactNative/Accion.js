@@ -3,11 +3,10 @@ import { View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
 import { getAccion } from "./src/redux/actions";
 import Pie from "./src/components/pie";
+import Cabecera from "./src/components/cabecera";
 
 class Accion extends Component {
-  static navigationOptions = {
-    title: "Acción"
-  };
+  static navigationOptions = {};
   componentDidMount() {
     const id = this.props.navigation.getParam("id");
     this.props.getAccion(id);
@@ -20,15 +19,12 @@ class Accion extends Component {
 
     return (
       <View style={style.container}>
-        <View>
+        <Cabecera volver navigation={this.props.navigation} />
+        <View style={{ flex: 1 }}>
           <Text style={style.titulo}>{titulo}</Text>
           <Text style={style.texto}>{texto}</Text>
         </View>
-        <Pie
-          energia={energia}
-          residuos={residuos}
-          dificultad={dificultad}
-        ></Pie>
+        <Pie energia={energia} residuos={residuos} dificultad={dificultad} />
       </View>
     );
   }
@@ -55,13 +51,14 @@ const style = StyleSheet.create({
     backgroundColor: "#333"
   },
   titulo: {
-    fontSize: 40,
-    padding: 5,
+    fontSize: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
     color: "white"
   },
   texto: {
-    fontSize: 18,
-    padding: 5,
+    fontSize: 15,
+    paddingHorizontal: 10,
     color: "white"
   }
 });

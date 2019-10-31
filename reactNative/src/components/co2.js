@@ -12,7 +12,7 @@ export default class Co2 extends Component {
 
     return (
       <View style={style.container}>
-        <Text style={{ color: "white" }}>Ahorro CO2</Text>
+        <Text style={{ color: "white" }}>- CO2</Text>
         <Image style={style.icono} source={imagenes[this.props.energia]} />
       </View>
     );
@@ -22,9 +22,13 @@ export default class Co2 extends Component {
 const style = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 2,
-    margin: 5,
-    alignItems: "center"
+    paddingVertical: 2,
+    marginTop: 6,
+    marginBottom: 5,
+    marginHorizontal: 13,
+    alignItems: "center",
+    backgroundColor: "#666",
+    borderRadius: 10
   },
   icono: { width: 80, height: 60 }
 });

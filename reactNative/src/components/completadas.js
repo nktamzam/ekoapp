@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, Image, View } from "react-native";
 
-export default class Residuos extends Component {
+export default class Completadas extends Component {
   render() {
     const imagenes = {
       3: require("../../assets/residuos_3.png"),
@@ -12,23 +12,21 @@ export default class Residuos extends Component {
 
     return (
       <View style={style.container}>
-        <Text style={{ color: "white" }}>- Residuos</Text>
-        <Image style={style.icono} source={imagenes[this.props.residuos]} />
+        <Text style={{ color: "white" }}>Acciones</Text>
+        <Text style={{ color: "white" }}>20/67</Text>
       </View>
     );
   }
 }
 
+//<Image style={style.icono} source={imagenes[this.props.residuos]} />
+
 const style = StyleSheet.create({
   container: {
     flex: 1,
     paddingVertical: 2,
-    marginTop: 6,
-    marginBottom: 5,
-    marginHorizontal: 13,
-    alignItems: "center",
-    backgroundColor: "#666",
-    borderRadius: 10
+    marginTop: 30,
+    alignItems: "center"
   },
   icono: { width: 80, height: 60 }
 });

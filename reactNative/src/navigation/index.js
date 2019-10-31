@@ -9,7 +9,10 @@ const AppNavigator = createStackNavigator(
     Acción: Accion
   },
   {
-    initialRouteName: "Home"
+    initialRouteName: "Home",
+    defaultNavigationOptions: {
+      header: null
+    }
   }
 );
 

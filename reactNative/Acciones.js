@@ -9,6 +9,7 @@ import {
 import { connect } from "react-redux";
 
 import { listarAcciones } from "./src/redux/actions";
+import Cabecera from "./src/components/cabecera";
 
 class ListaAcciones extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class ListaAcciones extends Component {
     const { acciones } = this.props;
     return (
       <View style={styles.container}>
+        <Cabecera navigation={this.props.navigation} />
         <FlatList
           styles={styles.container}
           data={acciones}
