@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import Completadas from "./completadas";
 import Nivel from "./nivel";
 import BotonVolver from "./botonVolver";
