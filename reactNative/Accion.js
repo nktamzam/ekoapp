@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { connect } from "react-redux";
-import { getAccion } from "./src/redux/actions";
+import { getAccion } from "./src/store/actions";
 import Pie from "./src/components/pie";
 import Cabecera from "./src/components/cabecera";
 

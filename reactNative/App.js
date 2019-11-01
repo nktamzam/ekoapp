@@ -1,19 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import axios from "axios";
-import axiosMiddleware from "redux-axios-middleware";
 import AppContainer from "./src/navigation";
-
-import reducer from "./src/redux/reducer";
-
-const client = axios.create({
-  baseURL: "http://ekoapp.online",
-  responseType: "json"
-});
-
-const store = createStore(reducer, applyMiddleware(axiosMiddleware(client)));
+import store from "./src/store/store";
 
 export default class App extends Component {
   render() {

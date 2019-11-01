@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 
-import { listarAcciones } from "./src/redux/actions";
+import { listarAcciones } from "./src/store/actions";
 import Cabecera from "./src/components/cabecera";
 
 class ListaAcciones extends Component {
