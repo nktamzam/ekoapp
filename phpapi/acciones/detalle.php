@@ -7,11 +7,11 @@ header("Access-Control-Allow-Credentials: true");
 header('Content-Type: application/json');
  
 // includes
-include_once '../config/db';
-include_once '../class/accion';
+include_once '../config/db.php';
+include_once '../class/accion.php';
  
 // get database connection
-$database = new Database();
+$database = new Database($dbpass);
 $db = $database->getConnection();
  
 // prepare accion object

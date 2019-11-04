@@ -8,11 +8,11 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // includes
-include_once '../config/db';
-include_once '../class/accion';
+include_once '../config/db.php';
+include_once '../class/accion.php';
  
 // instantiate database and accion object
-$database = new Database();
+$database = new Database($dbpass);
 $db = $database->getConnection();
  
 // initialize object
