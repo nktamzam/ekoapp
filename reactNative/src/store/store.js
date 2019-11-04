@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from "redux";
 import axios from "axios";
 import axiosMiddleware from "redux-axios-middleware";
 
-import reducer from "./src/store/reducer";
+import reducer from "./reducer";
 
 const client = axios.create({
   baseURL: "http://ekoapp.online",
