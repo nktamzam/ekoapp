@@ -13,7 +13,7 @@ export default class Nivel extends Component {
     return (
       <View style={style.container}>
         <Text style={{ color: "white" }}>Nivel</Text>
-        <Text style={{ color: "white" }}>5</Text>
+        <Text style={{ color: "white" }}>{this.props.nivel}</Text>
       </View>
     );
   }

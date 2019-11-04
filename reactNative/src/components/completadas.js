@@ -13,13 +13,11 @@ export default class Completadas extends Component {
     return (
       <View style={style.container}>
         <Text style={{ color: "white" }}>Acciones</Text>
-        <Text style={{ color: "white" }}>20/67</Text>
+        <Text style={{ color: "white" }}>{this.props.completadas}</Text>
       </View>
     );
   }
 }
-
-//<Image style={style.icono} source={imagenes[this.props.residuos]} />
 
 const style = StyleSheet.create({
   container: {

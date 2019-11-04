@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { connect } from "react-redux";
-import { getAccion } from "./src/store/actions";
+import { getAccion, addAccion, sumaNivel } from "./src/store/actions";
 import Pie from "./src/components/pie";
 import Cabecera from "./src/components/cabecera";
+import { State } from "react-native-gesture-handler";
 
 class Accion extends Component {
   static navigationOptions = {};
@@ -19,14 +20,22 @@ class Accion extends Component {
     if (loadingInfo) return <Text>Cargando...</Text>;
 
     // destructuring: extraemos las variables del objeto accion (este )
-    const { titulo, texto, energia, residuos, dificultad } = accion;
+    const { id, titulo, texto, energia, residuos, dificultad } = accion;
 
     return (
       <View style={style.container}>
-        <Cabecera volver navigation={this.props.navigation} />
+        <Cabecera
+          volver
+          nivel={this.props.nivel}
+          navigation={this.props.navigation}
+          completadas={this.props.completadas}
+        />
         <View style={{ flex: 1 }}>
           <Text style={style.titulo}>{titulo}</Text>
           <Text style={style.texto}>{texto}</Text>
+          <TouchableOpacity onPress={() => this.props.addAccion(id)}>
+            <Image style={style.icono} source={require("./assets/atras.png")} />
+          </TouchableOpacity>
         </View>
         <Pie energia={energia} residuos={residuos} dificultad={dificultad} />
       </View>
@@ -35,14 +44,18 @@ class Accion extends Component {
 }
 
 // el state (accion y loadinginfo) lo convertimos en props
-const mapStateToProps = ({ accion, loadingInfo }) => ({
-  accion,
-  loadingInfo
+const mapStateToProps = state => ({
+  accion: state.apiReducer.accion,
+  loadingInfo: state.apiReducer.loadingInfo,
+  nivel: state.userReducer.nivel,
+  completadas: state.userReducer.completadas
 });
 
 // la accion la convertimos en props
 const mapDispatchToProps = {
-  getAccion
+  getAccion,
+  sumaNivel,
+  addAccion
 };
 
 // exportamos con el state y la acción cómo props

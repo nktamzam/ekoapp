@@ -1,8 +1,6 @@
-import { GET_acciones, GET_accion, GET_USER } from "./reducer";
-
 export function listarAcciones() {
   return {
-    type: GET_acciones,
+    type: "ekoapp/acciones/LOAD",
     payload: {
       request: {
         url: `/acciones/lista`
@@ -13,7 +11,7 @@ export function listarAcciones() {
 
 export function getAccion(id) {
   return {
-    type: GET_accion,
+    type: "ekoapp/accion/INFO",
     payload: {
       request: {
         url: `/acciones/detalle?id=${id}`
@@ -30,5 +28,24 @@ export function getUser(user) {
         url: `/acciones/nueva`
       }
     }
+  };
+}
+
+export function calcNivel() {
+  return {
+    type: "prueba"
+  };
+}
+
+export function sumaNivel() {
+  return {
+    type: "suma"
+  };
+}
+
+export function addAccion(id) {
+  return {
+    type: "add",
+    id: id
   };
 }

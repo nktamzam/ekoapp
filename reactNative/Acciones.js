@@ -8,12 +8,13 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 
-import { listarAcciones } from "./src/store/actions";
+import { listarAcciones, calcNivel } from "./src/store/actions";
 import Cabecera from "./src/components/cabecera";
 
 class ListaAcciones extends Component {
   componentDidMount() {
     this.props.listarAcciones();
+    this.props.calcNivel();
   }
   renderItem = ({ item }) => (
     <TouchableHighlight
@@ -31,7 +32,7 @@ class ListaAcciones extends Component {
     const { acciones } = this.props;
     return (
       <View style={styles.container}>
-        <Cabecera navigation={this.props.navigation} />
+        <Cabecera nivel={this.props.nivel} navigation={this.props.navigation} />
         <FlatList
           styles={styles.container}
           data={acciones}
@@ -55,18 +56,20 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
-  let lista = state.acciones.map(accion => ({
+  let lista = state.apiReducer.acciones.map(accion => ({
     key: accion.id,
     ...accion
   }));
 
   return {
-    acciones: lista
+    acciones: lista,
+    nivel: state.userReducer.nivel
   };
 };
 
 const mapDispatchToProps = {
-  listarAcciones
+  listarAcciones,
+  calcNivel
 };
 
 export default connect(
