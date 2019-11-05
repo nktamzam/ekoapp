@@ -32,7 +32,11 @@ class ListaAcciones extends Component {
     const { acciones } = this.props;
     return (
       <View style={styles.container}>
-        <Cabecera nivel={this.props.nivel} navigation={this.props.navigation} />
+        <Cabecera
+          nivel={this.props.nivel}
+          navigation={this.props.navigation}
+          completadas={this.props.completadas}
+        />
         <FlatList
           styles={styles.container}
           data={acciones}
@@ -63,7 +67,8 @@ const mapStateToProps = state => {
 
   return {
     acciones: lista,
-    nivel: state.userReducer.nivel
+    nivel: state.userReducer.nivel,
+    completadas: state.userReducer.completadas
   };
 };
 

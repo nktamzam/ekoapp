@@ -3,7 +3,8 @@ import { createStore, applyMiddleware } from "redux";
 import axios from "axios";
 import axiosMiddleware from "redux-axios-middleware";
 import { persistStore, persistReducer } from "redux-persist";
-import reducers from "./reducer";
+import reducers from "./reducers";
+import thunk from "redux-thunk";
 
 const client = axios.create({
   baseURL: "http://ekoapp.online",
@@ -26,7 +27,7 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 
 const store = createStore(
   persistedReducer,
-  applyMiddleware(axiosMiddleware(client))
+  applyMiddleware(axiosMiddleware(client), thunk)
 );
 
 // Middleware: Redux Persist Persister

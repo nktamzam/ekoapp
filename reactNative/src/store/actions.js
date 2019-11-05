@@ -38,8 +38,10 @@ export function calcNivel() {
 }
 
 export function sumaNivel() {
-  return {
-    type: "suma"
+  return dispatch => {
+    return {
+      type: "suma"
+    };
   };
 }
 

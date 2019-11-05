@@ -20,7 +20,7 @@ class Accion extends Component {
     if (loadingInfo) return <Text>Cargando...</Text>;
 
     // destructuring: extraemos las variables del objeto accion (este )
-    const { id, titulo, texto, energia, residuos, dificultad } = accion;
+    const { titulo, texto, energia, residuos, dificultad } = accion;
 
     return (
       <View style={style.container}>
@@ -33,7 +33,7 @@ class Accion extends Component {
         <View style={{ flex: 1 }}>
           <Text style={style.titulo}>{titulo}</Text>
           <Text style={style.texto}>{texto}</Text>
-          <TouchableOpacity onPress={() => this.props.addAccion(id)}>
+          <TouchableOpacity onPress={() => this.props.sumaNivel()}>
             <Image style={style.icono} source={require("./assets/atras.png")} />
           </TouchableOpacity>
         </View>
