@@ -1,30 +1,31 @@
-export const GET_accion = "ekoapp/accion/INFO";
-export const GET_REPO_INFO_SUCCESS = "ekoapp/accion/INFO_SUCCESS";
-export const GET_REPO_INFO_FAIL = "ekoapp/accion/INFO_FAIL";
-
-const initialState = { acciones: [], accion: {}, user: {} };
+const initialState = {
+  acciones: [],
+  accion: {},
+  loading: true,
+  errorMessage: ""
+};
 
 export default function apiReducer(state = initialState, action) {
   switch (action.type) {
-    case "ekoapp/acciones/LOAD":
-      return { ...state, loading: true };
-    case "ekoapp/acciones/LOAD_SUCCESS":
-      return { ...state, loading: false, acciones: action.payload.data };
-    case "ekoapp/acciones/LOAD_FAIL":
+    case "GET_ACCIONES":
+      return { ...state, loading: action.payload };
+    case "GET_ACCIONES_COMPLETADO":
+      return { ...state, acciones: action.payload, loading: action.loading };
+    case "GET_ACCIONES_ERROR":
       return {
         ...state,
-        loading: false,
-        error: "No se puede mostrar la lista"
+        errorMessage: action.payload,
+        loading: action.loading
       };
-    case "ekoapp/accion/INFO":
-      return { ...state, loadingInfo: true };
-    case "ekoapp/accion/INFO_SUCCESS":
-      return { ...state, loadingInfo: false, accion: action.payload.data };
-    case "ekoapp/accion/INFO_FAIL":
+    case "GET_ACCION":
+      return { ...state, loading: action.payload };
+    case "GET_ACCION_COMPLETADO":
+      return { ...state, accion: action.payload, loading: action.loading };
+    case "GET_ACCION_ERROR":
       return {
         ...state,
-        loadingInfo: false,
-        errorInfo: "Error al consultar la acción"
+        errorMessage: action.payload,
+        loading: action.loading
       };
     default:
       return state;
