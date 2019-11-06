@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { connect } from "react-redux";
-import { getAccion, addAccion, sumaNivel } from "./src/store/actions";
+import { sumaNivel, addAccion } from "./src/store/actions";
+import { getAccion } from "./src/store/actions";
 import Pie from "./src/components/pie";
 import Cabecera from "./src/components/cabecera";
 import { State } from "react-native-gesture-handler";
