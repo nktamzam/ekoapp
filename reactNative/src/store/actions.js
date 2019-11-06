@@ -1,4 +1,4 @@
-export function listarAcciones() {
+export const listarAcciones = () => {
   return {
     type: "ekoapp/acciones/LOAD",
     payload: {
@@ -7,9 +7,9 @@ export function listarAcciones() {
       }
     }
   };
-}
+};
 
-export function getAccion(id) {
+export const getAccion = id => {
   return {
     type: "ekoapp/accion/INFO",
     payload: {
@@ -18,18 +18,7 @@ export function getAccion(id) {
       }
     }
   };
-}
-
-export function getUser(user) {
-  return {
-    type: GET_USER,
-    payload: {
-      request: {
-        url: `/acciones/nueva`
-      }
-    }
-  };
-}
+};
 
 export function calcNivel() {
   return {
@@ -38,10 +27,8 @@ export function calcNivel() {
 }
 
 export function sumaNivel() {
-  return dispatch => {
-    return {
-      type: "suma"
-    };
+  return {
+    type: "suma"
   };
 }
 
