@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import apiReducer from "./apiReducer";
-import userReducer from "./userReducer";
+import localReducer from "./localReducer";
 
 // Redux: Root Reducer
-const reducers = combineReducers({
+const rootReducer = combineReducers({
   apiReducer: apiReducer,
-  userReducer: userReducer
+  localReducer: localReducer
 });
 
-export default reducers;
+export default rootReducer;

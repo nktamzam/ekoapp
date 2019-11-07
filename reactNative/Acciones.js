@@ -68,8 +68,8 @@ const mapStateToProps = state => {
   return {
     acciones: lista,
     loading: state.apiReducer.loading,
-    nivel: state.userReducer.nivel,
-    completadas: state.userReducer.completadas
+    nivel: state.localReducer.nivel,
+    completadas: state.localReducer.completadas
   };
 };
 

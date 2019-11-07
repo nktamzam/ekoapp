@@ -48,8 +48,8 @@ class Accion extends Component {
 const mapStateToProps = state => ({
   accion: state.apiReducer.accion,
   loadingInfo: state.apiReducer.loadingInfo,
-  nivel: state.userReducer.nivel,
-  completadas: state.userReducer.completadas
+  nivel: state.localReducer.nivel,
+  completadas: state.localReducer.completadas
 });
 
 // la accion la convertimos en props

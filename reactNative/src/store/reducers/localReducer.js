@@ -1,6 +1,6 @@
 const initialState = { completadas: 6, nivel: 0 };
 
-export default function userReducer(state = initialState, action) {
+export default function localReducer(state = initialState, action) {
   switch (action.type) {
     case "prueba":
       return { ...state, nivel: state.nivel + 1 };
