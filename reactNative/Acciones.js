@@ -7,14 +7,14 @@ import {
   TouchableHighlight
 } from "react-native";
 import { connect } from "react-redux";
-import { calcNivel } from "./src/store/actions";
+//import { calcNivel } from "./src/store/actions";
 import { getAcciones } from "./src/store/actions";
 import Cabecera from "./src/components/cabecera";
 
 class ListaAcciones extends Component {
   componentDidMount() {
     this.props.getAcciones();
-    this.props.calcNivel();
+    //this.props.calcNivel();
   }
   renderItem = ({ item }) => (
     <TouchableHighlight
@@ -74,8 +74,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  getAcciones,
-  calcNivel
+  getAcciones
 };
 
 export default connect(

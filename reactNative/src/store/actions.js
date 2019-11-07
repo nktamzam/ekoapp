@@ -51,21 +51,19 @@ export const getAccion = id => {
   };
 };
 
-export const calcNivel = () => {
+export const mePaso = (id, co2, residuos, dificultad) => {
   return {
-    type: "prueba"
+    type: "mepaso",
+    id: id,
+    co2: co2,
+    residuos: residuos,
+    dificultad: dificultad
   };
 };
 
-export const sumaNivel = () => {
+export const meVuelvo = id => {
   return {
-    type: "suma"
-  };
-};
-
-export const addAccion = id => {
-  return {
-    type: "add",
+    type: "mevuelvo",
     id: id
   };
 };

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default class Completadas extends Component {
   render() {
@@ -13,7 +13,9 @@ export default class Completadas extends Component {
     return (
       <View style={style.container}>
         <Text style={{ color: "white" }}>Acciones</Text>
-        <Text style={{ color: "white" }}>{this.props.completadas}</Text>
+        <Text style={{ color: "white" }}>
+          {Object.keys(this.props.completadas).length}
+        </Text>
       </View>
     );
   }

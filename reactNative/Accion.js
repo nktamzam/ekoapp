@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Alert
+} from "react-native";
 import { connect } from "react-redux";
-import { sumaNivel, addAccion } from "./src/store/actions";
+import { mePaso, meVuelvo } from "./src/store/actions";
 import { getAccion } from "./src/store/actions";
 import Pie from "./src/components/pie";
 import Cabecera from "./src/components/cabecera";
@@ -17,11 +24,11 @@ class Accion extends Component {
   }
   render() {
     // destructuring: extraemos variables accion, loadingInfo the this props
-    const { accion, loadingInfo } = this.props;
-    if (loadingInfo) return <Text>Cargando...</Text>;
+    const { accion, loading } = this.props;
+    if (loading) return <Text>Cargando...</Text>;
 
     // destructuring: extraemos las variables del objeto accion (este )
-    const { titulo, texto, energia, residuos, dificultad } = accion;
+    const { id, titulo, texto, energia, residuos, dificultad } = accion;
 
     return (
       <View style={style.container}>
@@ -34,9 +41,23 @@ class Accion extends Component {
         <View style={{ flex: 1 }}>
           <Text style={style.titulo}>{titulo}</Text>
           <Text style={style.texto}>{texto}</Text>
-          <TouchableOpacity onPress={() => this.props.sumaNivel()}>
-            <Image style={style.icono} source={require("./assets/atras.png")} />
-          </TouchableOpacity>
+          <Text style={style.texto}>
+            {JSON.stringify(this.props.completadas)}
+          </Text>
+
+          {id in this.props.completadas ? (
+            <TouchableOpacity onPress={() => this.props.meVuelvo(id)}>
+              <Image style={style.icono} source={require("./assets/no.png")} />
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              onPress={() =>
+                this.props.mePaso(id, energia, residuos, dificultad)
+              }
+            >
+              <Image style={style.icono} source={require("./assets/ok.png")} />
+            </TouchableOpacity>
+          )}
         </View>
         <Pie energia={energia} residuos={residuos} dificultad={dificultad} />
       </View>
@@ -47,7 +68,7 @@ class Accion extends Component {
 // el state (accion y loadinginfo) lo convertimos en props
 const mapStateToProps = state => ({
   accion: state.apiReducer.accion,
-  loadingInfo: state.apiReducer.loadingInfo,
+  loading: state.apiReducer.loading,
   nivel: state.localReducer.nivel,
   completadas: state.localReducer.completadas
 });
@@ -55,8 +76,8 @@ const mapStateToProps = state => ({
 // la accion la convertimos en props
 const mapDispatchToProps = {
   getAccion,
-  sumaNivel,
-  addAccion
+  mePaso,
+  meVuelvo
 };
 
 // exportamos con el state y la acción cómo props
@@ -81,5 +102,6 @@ const style = StyleSheet.create({
     fontSize: 15,
     paddingHorizontal: 10,
     color: "white"
-  }
+  },
+  icono: { width: 50, height: 50, margin: 10 }
 });
