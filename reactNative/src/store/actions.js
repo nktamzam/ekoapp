@@ -51,19 +51,24 @@ export const getAccion = id => {
   };
 };
 
-export const mePaso = (id, co2, residuos, dificultad) => {
+export const mePaso = (id, co2, residuos, dificultad, total) => {
   return {
     type: "mepaso",
     id: id,
     co2: co2,
-    residuos: residuos,
-    dificultad: dificultad
+    res: residuos,
+    dif: dificultad,
+    total: total
   };
 };
 
-export const meVuelvo = id => {
+export const meVuelvo = (id, co2, residuos, dificultad, total) => {
   return {
     type: "mevuelvo",
-    id: id
+    id: id,
+    co2: co2,
+    res: residuos,
+    dif: dificultad,
+    total: total
   };
 };

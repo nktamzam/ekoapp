@@ -14,7 +14,7 @@ export default class Completadas extends Component {
       <View style={style.container}>
         <Text style={{ color: "white" }}>Acciones</Text>
         <Text style={{ color: "white" }}>
-          {Object.keys(this.props.completadas).length}
+          {Object.keys(this.props.completadas).length} / {this.props.total}
         </Text>
       </View>
     );

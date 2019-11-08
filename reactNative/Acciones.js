@@ -7,19 +7,20 @@ import {
   TouchableHighlight
 } from "react-native";
 import { connect } from "react-redux";
-//import { calcNivel } from "./src/store/actions";
 import { getAcciones } from "./src/store/actions";
 import Cabecera from "./src/components/cabecera";
 
 class ListaAcciones extends Component {
   componentDidMount() {
     this.props.getAcciones();
-    //this.props.calcNivel();
   }
   renderItem = ({ item }) => (
     <TouchableHighlight
       onPress={() => {
-        this.props.navigation.navigate("Acción", { id: item.id });
+        this.props.navigation.navigate("Acción", {
+          id: item.id,
+          total: Object.keys(this.props.acciones).length
+        });
       }}
     >
       <View style={styles.item}>
@@ -36,6 +37,7 @@ class ListaAcciones extends Component {
           nivel={this.props.nivel}
           navigation={this.props.navigation}
           completadas={this.props.completadas}
+          total={Object.keys(this.props.acciones).length}
         />
         <FlatList
           styles={styles.container}

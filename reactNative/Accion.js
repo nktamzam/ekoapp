@@ -37,6 +37,7 @@ class Accion extends Component {
           nivel={this.props.nivel}
           navigation={this.props.navigation}
           completadas={this.props.completadas}
+          total={this.props.navigation.getParam("total")}
         />
         <View style={{ flex: 1 }}>
           <Text style={style.titulo}>{titulo}</Text>
@@ -46,13 +47,29 @@ class Accion extends Component {
           </Text>
 
           {id in this.props.completadas ? (
-            <TouchableOpacity onPress={() => this.props.meVuelvo(id)}>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.meVuelvo(
+                  id,
+                  energia,
+                  residuos,
+                  dificultad,
+                  this.props.navigation.getParam("total")
+                )
+              }
+            >
               <Image style={style.icono} source={require("./assets/no.png")} />
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
               onPress={() =>
-                this.props.mePaso(id, energia, residuos, dificultad)
+                this.props.mePaso(
+                  id,
+                  energia,
+                  residuos,
+                  dificultad,
+                  this.props.navigation.getParam("total")
+                )
               }
             >
               <Image style={style.icono} source={require("./assets/ok.png")} />

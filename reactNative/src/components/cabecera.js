@@ -11,7 +11,10 @@ export default class Cabecera extends Component {
         {this.props.volver && (
           <BotonVolver navigation={this.props.navigation} />
         )}
-        <Completadas completadas={this.props.completadas} />
+        <Completadas
+          completadas={this.props.completadas}
+          total={this.props.total}
+        />
         <Nivel nivel={this.props.nivel} />
       </View>
     );
