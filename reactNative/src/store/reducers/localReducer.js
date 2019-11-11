@@ -1,7 +1,6 @@
 const initialState = {
   completadas: { 0: { co2: 0, res: 0, dif: 0 } },
-  nivel: 0,
-  total: 0
+  nivel: 0
 };
 
 export default function localReducer(state = initialState, action) {
@@ -18,9 +17,10 @@ export default function localReducer(state = initialState, action) {
           }
         },
         nivel:
-          ((action.co2 + action.res + action.dif) / (action.total * 9)) * 100,
-
-        total: action.total
+          parseInt(state.nivel) +
+          parseInt(action.co2) +
+          parseInt(action.res) +
+          parseInt(action.dif)
       };
     case "mevuelvo":
       const { [action.id]: value, ...nuevoArray } = state.completadas;
@@ -29,8 +29,7 @@ export default function localReducer(state = initialState, action) {
         completadas: {
           ...nuevoArray
         },
-        nivel:
-          ((action.co2 + action.res + action.dif) / (action.total * 9)) * 100
+        nivel: state.nivel - action.co2 - action.res - action.dif
       };
     default:
       return state;

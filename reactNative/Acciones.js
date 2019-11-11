@@ -14,12 +14,23 @@ class ListaAcciones extends Component {
   componentDidMount() {
     this.props.getAcciones();
   }
+
+  puntosTotal = () => {
+    // sumamos (resisduos + energia + dificultad) de cada acción y devolvemos array suma2
+    const suma = this.props.acciones.map(
+      x => parseInt(x.residuos) + parseInt(x.energia) + parseInt(x.dificultad)
+    );
+    // sumamos y devolvemos las sumas de cada acción
+    return suma.reduce((a, b) => a + b, 0);
+  };
+
   renderItem = ({ item }) => (
     <TouchableHighlight
       onPress={() => {
         this.props.navigation.navigate("Acción", {
           id: item.id,
-          total: Object.keys(this.props.acciones).length
+          total: Object.keys(this.props.acciones).length,
+          puntosTotal: this.puntosTotal()
         });
       }}
     >
@@ -31,14 +42,17 @@ class ListaAcciones extends Component {
   );
   render() {
     const { acciones } = this.props;
+
     return (
       <View style={styles.container}>
         <Cabecera
           nivel={this.props.nivel}
           navigation={this.props.navigation}
           completadas={this.props.completadas}
-          total={Object.keys(this.props.acciones).length}
+          total={Object.keys(acciones).length}
+          puntosTotal={this.puntosTotal()}
         />
+
         <FlatList
           styles={styles.container}
           data={acciones}

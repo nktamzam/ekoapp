@@ -15,7 +15,7 @@ export default class Cabecera extends Component {
           completadas={this.props.completadas}
           total={this.props.total}
         />
-        <Nivel nivel={this.props.nivel} />
+        <Nivel nivel={this.props.nivel} puntosTotal={this.props.puntosTotal} />
       </View>
     );
   }
