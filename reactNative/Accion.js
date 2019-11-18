@@ -68,7 +68,7 @@ class Accion extends Component {
   }
 }
 
-// el state (accion y loadinginfo) lo convertimos en props
+// convertimos los state (accion, loading, nivel, completadas) en props
 const mapStateToProps = state => ({
   accion: state.apiReducer.accion,
   loading: state.apiReducer.loading,
@@ -76,14 +76,14 @@ const mapStateToProps = state => ({
   completadas: state.localReducer.completadas
 });
 
-// la accion la convertimos en props
+// convertimos las acciones getAccion, mePaso, meVuelvo en props
 const mapDispatchToProps = {
   getAccion,
   mePaso,
   meVuelvo
 };
 
-// exportamos con el state y la acción cómo props
+// exportamos con el state y las actions cómo props
 export default connect(
   mapStateToProps,
   mapDispatchToProps

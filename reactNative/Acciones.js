@@ -12,11 +12,13 @@ import Cabecera from "./src/components/cabecera";
 
 class ListaAcciones extends Component {
   componentDidMount() {
+    // consultamos la BD
     this.props.getAcciones();
   }
 
+  // calculamos los puntos totales de las accionde de la BD
   puntosTotal = () => {
-    // sumamos (resisduos + energia + dificultad) de cada acción y devolvemos array suma2
+    // sumamos (resisduos + energia + dificultad) de cada acción y devolvemos array
     const suma = this.props.acciones.map(
       x => parseInt(x.residuos) + parseInt(x.energia) + parseInt(x.dificultad)
     );
@@ -75,6 +77,7 @@ const styles = StyleSheet.create({
   }
 });
 
+// convertimos los state a props. Acciones le añadimos un key paar el Flatlist
 const mapStateToProps = state => {
   let lista = state.apiReducer.acciones.map(accion => ({
     key: accion.id,

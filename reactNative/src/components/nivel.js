@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, Image, View } from "react-native";
 
 export default class Nivel extends Component {
+  // calculamos el nivel
   calculaNivel = () => {
     const media = (this.props.nivel / this.props.puntosTotal) * 100;
     if (media < 5) {
@@ -20,6 +21,7 @@ export default class Nivel extends Component {
   };
 
   render() {
+    //creamos objeto imagenes para llamarla luego desde Image source
     const imagenes = {
       5: require("../../assets/nivel_5.png"),
       4: require("../../assets/nivel_4.png"),
