@@ -1,9 +1,9 @@
 {
+  "packagerPort": 19001,
+  "packagerPid": 13576,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 9616,
   "expoServerNgrokUrl": "https://ny-tg8.anonymous.reactnative.exp.direct",
   "packagerNgrokUrl": "https://packager.ny-tg8.anonymous.reactnative.exp.direct",
-  "ngrokPid": 11592
+  "ngrokPid": 12460
 }

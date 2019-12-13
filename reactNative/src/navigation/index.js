@@ -2,11 +2,13 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import Acciones from "../../Acciones";
 import Accion from "../../Accion";
+import NuevaAccion from "../../NuevaAccion";
 
 const AppNavigator = createStackNavigator(
   {
     Home: Acciones,
-    Acción: Accion
+    Acción: Accion,
+    NuevaAcción: NuevaAccion
   },
   {
     initialRouteName: "Home",

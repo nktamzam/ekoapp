@@ -48,6 +48,7 @@ class ListaAcciones extends Component {
     return (
       <View style={styles.container}>
         <Cabecera
+          nueva
           nivel={this.props.nivel}
           navigation={this.props.navigation}
           completadas={this.props.completadas}
@@ -96,7 +97,4 @@ const mapDispatchToProps = {
   getAcciones
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ListaAcciones);
+export default connect(mapStateToProps, mapDispatchToProps)(ListaAcciones);

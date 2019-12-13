@@ -3,6 +3,7 @@ import { StyleSheet, View } from "react-native";
 import Completadas from "./completadas";
 import Nivel from "./nivel";
 import BotonVolver from "./botonVolver";
+import BotonNueva from "./botonNueva";
 
 export default class Cabecera extends Component {
   render() {
@@ -10,6 +11,15 @@ export default class Cabecera extends Component {
       <View style={style.container}>
         {this.props.volver && (
           <BotonVolver navigation={this.props.navigation} />
+        )}
+        {this.props.nueva && (
+          <BotonNueva
+            nivel={this.props.nivel}
+            navigation={this.props.navigation}
+            completadas={this.props.completadas}
+            total={this.props.total}
+            puntosTotal={this.props.puntosTotal}
+          />
         )}
         <Completadas
           completadas={this.props.completadas}
