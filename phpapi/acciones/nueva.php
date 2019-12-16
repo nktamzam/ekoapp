@@ -1,4 +1,9 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+
 // headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -12,7 +17,7 @@ include_once '../config/db.php';
 // instanciar objeto accion
 include_once '../class/accion.php';
  
-$database = new Database();
+$database = new Database($dbpass);
 $db = $database->getConnection();
  
 $accion = new Accion($db);
@@ -64,6 +69,6 @@ else{
     http_response_code(400);
  
     // tell the user
-    echo json_encode(array("Mensaje" => "Datps incompletos error."));
+    echo json_encode(array("Mensaje" => "Datos incompletos error."));
 }
 ?>
