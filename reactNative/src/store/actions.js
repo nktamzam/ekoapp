@@ -1,4 +1,5 @@
 import axios from "axios";
+import { NavigationActions } from "react-navigation";
 
 export const consulta = (bool, type) => {
   return {
@@ -48,6 +49,36 @@ export const getAccion = id => {
         dispatch(completada(res.data, "GET_ACCION_COMPLETADO"));
       })
       .catch(err => dispatch(error(err, "GET_ACCIONES_ERROR")));
+  };
+};
+
+export const postAccion = ({
+  titulo,
+  texto,
+  energia,
+  residuos,
+  dificultad
+}) => {
+  return dispatch => {
+    //Dispatch the fetchData action creator before retrieving to set our loading state to true.
+
+    dispatch(consulta(true, "POST_ACCION"));
+    dispatch(NavigationActions.navigate({ routeName: "Acciones" }));
+    NavigationActions.navigate({ routeName: "Acciones" });
+    //Then get the data.
+    axios
+      .post("http://ekoapp.online/acciones/nueva", {
+        titulo: titulo,
+        texto: texto,
+        energia: energia,
+        residuos: residuos,
+        dificultad: dificultad,
+        aprobado: 1
+      })
+      .then(res => {
+        dispatch(completada(res.data, "POST_ACCION_COMPLETADO"));
+      })
+      .catch(err => dispatch(error(err, "POST_ACCION_ERROR")));
   };
 };
 

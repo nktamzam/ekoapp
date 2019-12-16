@@ -27,6 +27,16 @@ export default function apiReducer(state = initialState, action) {
         errorMessage: action.payload,
         loading: action.loading
       };
+    case "POST_ACCION":
+      return { ...state, loading: action.payload };
+    case "POST_ACCION_COMPLETADO":
+      return { ...state, accion: action.payload, loading: action.loading };
+    case "POST_ACCION_ERROR":
+      return {
+        ...state,
+        errorMessage: action.payload,
+        loading: action.loading
+      };
     default:
       return state;
   }

@@ -5,17 +5,15 @@ import {
   StyleSheet,
   Button,
   TextInput,
-  Alert,
   Picker
 } from "react-native";
 import { connect } from "react-redux";
 import Cabecera from "./src/components/cabecera";
 import { Formik } from "formik";
 import * as yup from "yup";
+import { postAccion } from "./src/store/actions";
 
 class NuevaAccion extends Component {
-  static navigationOptions = {};
-
   render() {
     return (
       <View style={style.container}>
@@ -31,20 +29,17 @@ class NuevaAccion extends Component {
         <Formik
           initialValues={{
             titulo: "",
-            descripcion: "",
+            texto: "",
             dificultad: "",
-            co2: "",
+            energia: "",
             residuos: ""
           }}
-          onSubmit={values => Alert.alert(JSON.stringify(values))}
+          onSubmit={values => this.props.postAccion(values)}
           validationSchema={yup.object().shape({
             titulo: yup.string().required(),
-            descripcion: yup
-              .string()
-              .min(6)
-              .required(),
+            texto: yup.string().required(),
             dificultad: yup.string().required(),
-            co2: yup.string().required(),
+            energia: yup.string().required(),
             residuos: yup.string().required()
           })}
         >
@@ -73,15 +68,15 @@ class NuevaAccion extends Component {
               )}
               <TextInput
                 style={style.textinput}
-                value={values.descripcion}
-                onChangeText={handleChange("descripcion")}
+                value={values.texto}
+                onChangeText={handleChange("texto")}
                 placeholder="Texto descriptivo"
                 multiline={true}
-                onBlur={() => setFieldTouched("descripcion")}
+                onBlur={() => setFieldTouched("texto")}
               />
-              {touched.descripcion && errors.descripcion && (
+              {touched.texto && errors.texto && (
                 <Text style={{ fontSize: 10, color: "red" }}>
-                  {errors.descripcion}
+                  {errors.texto}
                 </Text>
               )}
 
@@ -100,9 +95,9 @@ class NuevaAccion extends Component {
 
               <Picker
                 style={style.textinput}
-                selectedValue={values.co2}
+                selectedValue={values.energia}
                 onValueChange={(itemValue, itemIndex) => {
-                  setFieldValue("co2", itemValue);
+                  setFieldValue("energia", itemValue);
                 }}
               >
                 <Picker.Item
@@ -152,7 +147,9 @@ const mapStateToProps = state => ({
 });
 
 // convertimos las acciones getAccion, mePaso, meVuelvo en props
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  postAccion
+};
 
 // exportamos con el state y las actions cómo props
 export default connect(mapStateToProps, mapDispatchToProps)(NuevaAccion);
