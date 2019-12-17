@@ -5,7 +5,9 @@ export default class BotonVolver extends Component {
   render() {
     return (
       <View style={style.container}>
-        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("Home")}
+        >
           <Image
             style={style.icono}
             source={require("../../assets/atras.png")}

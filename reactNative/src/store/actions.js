@@ -1,5 +1,4 @@
 import axios from "axios";
-import { NavigationActions } from "react-navigation";
 
 export const consulta = (bool, type) => {
   return {
@@ -63,8 +62,6 @@ export const postAccion = ({
     //Dispatch the fetchData action creator before retrieving to set our loading state to true.
 
     dispatch(consulta(true, "POST_ACCION"));
-    dispatch(NavigationActions.navigate({ routeName: "Acciones" }));
-    NavigationActions.navigate({ routeName: "Acciones" });
     //Then get the data.
     axios
       .post("http://ekoapp.online/acciones/nueva", {
@@ -73,7 +70,7 @@ export const postAccion = ({
         energia: energia,
         residuos: residuos,
         dificultad: dificultad,
-        aprobado: 1
+        aprobado: 0
       })
       .then(res => {
         dispatch(completada(res.data, "POST_ACCION_COMPLETADO"));

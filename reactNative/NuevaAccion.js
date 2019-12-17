@@ -34,7 +34,10 @@ class NuevaAccion extends Component {
             energia: "",
             residuos: ""
           }}
-          onSubmit={values => this.props.postAccion(values)}
+          onSubmit={values => {
+            this.props.postAccion(values);
+            this.props.navigation.navigate("Home");
+          }}
           validationSchema={yup.object().shape({
             titulo: yup.string().required(),
             texto: yup.string().required(),
@@ -51,7 +54,8 @@ class NuevaAccion extends Component {
             setFieldValue,
             touched,
             isValid,
-            handleSubmit
+            handleSubmit,
+            isSubmitting
           }) => (
             <Fragment>
               <TextInput
@@ -87,7 +91,7 @@ class NuevaAccion extends Component {
                   setFieldValue("dificultad", itemValue);
                 }}
               >
-                <Picker.Item label="Eegir dificultad" value="" />
+                <Picker.Item label="Elegir dificultad" value="" />
                 <Picker.Item label="facil" value="1" />
                 <Picker.Item label="Dificil" value="2" />
                 <Picker.Item label="Muy Dificil" value="3" />
@@ -104,7 +108,6 @@ class NuevaAccion extends Component {
                   label="Elegir nivel de reducción de co2"
                   value=""
                 />
-                <Picker.Item label="Nada" value="0" />
                 <Picker.Item label="Bajo" value="1" />
                 <Picker.Item label="Medio" value="2" />
                 <Picker.Item label="Alto" value="3" />
@@ -121,7 +124,6 @@ class NuevaAccion extends Component {
                   label="Elegir nivel de reducción de residuos"
                   value=""
                 />
-                <Picker.Item label="Nada" value="0" />
                 <Picker.Item label="Bajo" value="1" />
                 <Picker.Item label="Medio" value="2" />
                 <Picker.Item label="Alto" value="3" />
@@ -130,6 +132,7 @@ class NuevaAccion extends Component {
                 style={style.textinput}
                 title="Nueva acción"
                 disabled={!isValid}
+                disabled={isSubmitting}
                 onPress={handleSubmit}
               />
             </Fragment>
