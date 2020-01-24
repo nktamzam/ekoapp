@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: access");
@@ -49,4 +52,7 @@ else{
     // tell the user accion does not exist
     echo json_encode(array("Mensaje" => "La acción no existe."));
 }
+
+    $database->closeConnection();
+
 ?>

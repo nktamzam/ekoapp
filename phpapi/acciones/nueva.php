@@ -71,4 +71,6 @@ else{
     // tell the user
     echo json_encode(array("Mensaje" => "Datos incompletos error."));
 }
+
+$database->closeConnection();
 ?>

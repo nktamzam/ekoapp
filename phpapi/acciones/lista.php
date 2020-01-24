@@ -72,4 +72,6 @@ else{
     );
 }
 
+$database->closeConnection();
+
 ?>
