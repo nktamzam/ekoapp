@@ -4,16 +4,26 @@ import {
   Text,
   FlatList,
   StyleSheet,
-  TouchableHighlight
+  TouchableHighlight,
+  Alert
 } from "react-native";
 import { connect } from "react-redux";
 import { getAcciones } from "./src/store/actions";
 import Cabecera from "./src/components/cabecera";
+import { withNavigationFocus } from "react-navigation";
 
 class ListaAcciones extends Component {
+  state = { carga: true };
+
   componentDidMount() {
     // consultamos la BD
     this.props.getAcciones();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.isFocused !== this.props.isFocused) {
+      this.props.getAcciones();
+    }
   }
 
   // calculamos los puntos totales de las accionde de la BD
@@ -97,4 +107,6 @@ const mapDispatchToProps = {
   getAcciones
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListaAcciones);
+export default withNavigationFocus(
+  connect(mapStateToProps, mapDispatchToProps)(ListaAcciones)
+);

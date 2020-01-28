@@ -1,9 +1,9 @@
 {
   "packagerPort": 19001,
-  "packagerPid": 12628,
+  "packagerPid": 12976,
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "expoServerNgrokUrl": "https://vt-zvi.anonymous.reactnative.exp.direct",
-  "packagerNgrokUrl": "https://packager.vt-zvi.anonymous.reactnative.exp.direct",
-  "ngrokPid": 14056
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
